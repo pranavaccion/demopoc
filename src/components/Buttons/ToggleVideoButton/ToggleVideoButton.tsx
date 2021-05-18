@@ -3,6 +3,8 @@ import React, { useCallback, useRef } from 'react';
 import Button from '@material-ui/core/Button';
 import VideoOffIcon from '../../../icons/VideoOffIcon';
 import VideoOnIcon from '../../../icons/VideoOnIcon';
+import Prohabited from '../../../icons/Prohabited';
+
 
 import useDevices from '../../../hooks/useDevices/useDevices';
 import useLocalVideoToggle from '../../../hooks/useLocalVideoToggle/useLocalVideoToggle';
@@ -24,11 +26,10 @@ export default function ToggleVideoButton(props: { disabled?: boolean; className
       className={props.className}
       onClick={toggleVideo}
       disabled={!hasVideoInputDevices || props.disabled}
-      startIcon={isVideoEnabled ? <img src={videoIcon} style={{ width:20,
-        height:20}} alt='user'/> : <VideoOffIcon />}
+      startIcon={isVideoEnabled ?  <VideoOnIcon /> :<> <VideoOnIcon /><Prohabited/></>}
     >
-      {/* {!hasVideoInputDevices ? 'No Video' : isVideoEnabled ? 'Stop Video' : 'Start Video'} */}
-      {!hasVideoInputDevices ? 'No Video' : null}
+      {!hasVideoInputDevices ? 'No Video' : isVideoEnabled ? 'Stop Video' : 'Start Video'}
+      {/* {!hasVideoInputDevices ? 'No Video' : null} */}
 
     </Button>
   );
