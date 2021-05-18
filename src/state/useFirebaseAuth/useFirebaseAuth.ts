@@ -23,6 +23,7 @@ export default function useFirebaseAuth() {
       headers.set('content-type', 'application/json');
 
       const endpoint = process.env.REACT_APP_TOKEN_ENDPOINT || '/token';
+console.log('here the end point',endpoint);
 
       return fetch(endpoint, {
         method: 'POST',
