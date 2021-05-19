@@ -24,7 +24,7 @@ export default function useFirebaseAuth() {
       const endpoint = process.env.REACT_APP_TOKEN_ENDPOINT || '/token';
 console.log('here the end point',endpoint);
 
-      return fetch(`https://demosonora.herokuapp.com/token`, {
+      return fetch(`https://demo-sono.herokuapp.com/token`, {
         method: 'POST',
         headers,
         body: JSON.stringify({
