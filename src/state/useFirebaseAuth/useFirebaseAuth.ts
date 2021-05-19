@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -25,7 +24,7 @@ export default function useFirebaseAuth() {
       const endpoint = process.env.REACT_APP_TOKEN_ENDPOINT || '/token';
 console.log('here the end point',endpoint);
 
-      return fetch(endpoint, {
+      return fetch(`https://demosonora.herokuapp.com/token`, {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -35,7 +34,7 @@ console.log('here the end point',endpoint);
         }),
       })
         .then(res => res.json())
-        .then(res => res.token as string);
+        .then(res => res.token as string)
     },
     [user]
   );
